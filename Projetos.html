@@ -1,0 +1,237 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050816">
+  <title>Projetos - Enzo Brito</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/historia.css">
+  <link rel="stylesheet" href="css/projetos.css">
+  <script>try { if (localStorage.getItem('theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}</script>
+  <noscript>
+    <style>.reveal { opacity: 1; transform: none; }</style>
+  </noscript>
+</head>
+<body class="pj-body">
+  <!-- Gradiente reutilizado pelos ícones/visuais (stroke) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="pjgrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#56d9ff" />
+        <stop offset="1" stop-color="#7c5dff" />
+      </linearGradient>
+    </defs>
+  </svg>
+  <!-- Progresso de rolagem cinematográfico -->
+  <div class="pj-progress" aria-hidden="true"><span></span><span></span></div>
+  <header class="mh-header">
+    <div class="brand">
+      <a href="index.html" class="brand_name">ENZO BRITO</a>
+      <span class="brand_tag">Cybersecurity • Data • AI</span>
+    </div>
+    <nav class="mh-nav" aria-label="Navegação">
+      <a href="MinhaHistoria.html" class="mh-nav_link" data-i18n="navHistory">Minha História</a>
+      <a href="Curriculo.html" class="mh-nav_link" data-i18n="navResume">Currículo</a>
+      <a href="Projetos.html" class="mh-nav_link is-active" aria-current="page" data-i18n="navProjects">Projetos</a>
+      <button type="button" class="lang-toggle" aria-label="Idioma / Language">PT</button>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Alternar tema" aria-pressed="false">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5" /><path d="M12 1v2" /><path d="M12 21v2" /><path d="M4.22 4.22l1.42 1.42" /><path d="M18.36 18.36l1.42 1.42" /><path d="M1 12h2" /><path d="M21 12h2" /><path d="M4.22 19.78l1.42-1.42" /><path d="M18.36 5.64l1.42-1.42" /></svg>
+      </button>
+    </nav>
+  </header>
+  <main>
+    <!-- ==================== INTRO EDITORIAL ==================== -->
+    <section class="pj-hero">
+      <div class="pj-wrap">
+        <p class="pj-hero_eyebrow reveal" data-i18n="navProjects">Projetos</p>
+        <h1 class="pj-hero_title reveal" style="--1:1" data-i18n="pjHeroTitle">Projetos que moldaram minha jornada</h1>
+        <p class="pj-hero_desc reveal" style="--1:2" data-i18n="pjHeroDesc">Cada projeto é uma etapa da minha evolução profissional – uma trajetória de crescimento, construção, aprendizado e impacto. Explore os marcos que me trouxeram até aqui.</p>
+        <span class="pj-hero_scroll reveal" style="--1:3" data-i18n="pjScroll">Role para explorar<span>↓</span></span>
+      </div>
+    </section>
+    <!-- ==================== TIMELINE DE CAPÍTULOS ==================== -->
+    <div class="pj-timeline">
+      <span class="pj-timeline_spark" aria-hidden="true"></span>
+      <!-- Projeto 01 -->
+      <section class="pj-chapter" aria-labelledby="pj1-title">
+        <span class="pj-node" aria-hidden="true">01</span>
+        <div class="pj-wrap">
+          <div class="pj-chapter_grid">
+            <div class="pj-chapter_text reveal">
+              <p class="pj-chapter_eyebrow" data-i18n="pj1Kicker">Capítulo 01</p>
+              <h2 class="pj-chapter_title" id="pj1-title" data-i18n="pj1Title">Risk Monitoring Platform</h2>
+              <p class="pj-chapter_theme" data-i18n="pj1Theme">Dados se transformando em visibilidade.</p>
+              <p class="pj-chapter_narrative" data-i18n="pj1Narrative">Consolidação de indicadores de risco em um ambiente unificado para apoio à tomada de decisão.</p>
+              <p class="pj-chapter_message" data-i18n="pj1Message">Transformando informações dispersas em uma visão clara dos riscos.</p>
+              <div class="pj-meta">
+                <p class="pj-meta_label" data-i18n="pjLabelTech">Tecnologias</p>
+                <div class="pj-chips"><span>Python</span><span>SQL</span><span>Power BI</span></div>
+              </div>
+              <div class="pj-meta">
+                <p class="pj-meta_label" data-i18n="pjLabelImpact">Impacto</p>
+                <ul class="pj-impact">
+                  <li data-i18n="pj1Imp1">Maior visibilidade.</li>
+                  <li data-i18n="pj1Imp2">Menor trabalho operacional.</li>
+                  <li data-i18n="pj1Imp3">Análises mais eficientes.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="pj-chapter_visual reveal" style="--1:1">
+              <figure class="pj-shot">
+                <div class="pj-shot_bar">
+                  <i></i><i></i><i>icon</i>
+                  <span class="pj-shot_title">Risk Monitor - Dashboard Executivo</span>
+                  <span class="pj-shot_badge" data-i18n="pjShotBadge">Dados fictícios</span>
+                </div>
+                <img class="pj-shot_img" src="assets/RiskMonitor.png" alt="Dashboard executivo da Risk Monitoring Platform com indicadores de risco (dados fictícios)" loading="lazy" decoding="async">
+              </figure>
+              <p class="pj-shot_note">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><line x1="12" y1="11" x2="12" y2="16" /><line x1="12" y1="8" x2="12.01" y2="8" /></svg>
+                <span data-i18n="pj1Disclaimer">Os dados exibidos são fictícios. Dados reais não podem ser compartilhados por questões de confidencialidade.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Projeto 02 -->
+      <section class="pj-chapter" aria-labelledby="pj2-title">
+        <span class="pj-node" aria-hidden="true">02</span>
+        <div class="pj-wrap">
+          <div class="pj-chapter_grid">
+            <div class="pj-chapter_text reveal">
+              <p class="pj-chapter_eyebrow" data-i18n="pj2Kicker">Capítulo 02</p>
+              <h2 class="pj-chapter_title" id="pj2-title" data-i18n="pj2Title">Managed Solutions Hub</h2>
+              <p class="pj-chapter_theme" data-i18n="pj2Theme">Ecossistema de conexões.</p>
+              <p class="pj-chapter_narrative" data-i18n="pj2Narrative">Desenvolvimento de produtos que combinam soluções de fabricantes com serviços gerenciados.</p>
+              <p class="pj-chapter_message" data-i18n="pj2Message">Conectar tecnologia e serviços para criar experiências completas.</p>
+              <div class="pj-meta">
+                <p class="pj-meta_label" data-i18n="pjLabelAreas">Áreas</p>
+                <div class="pj-chips">
+                  <span data-i18n="pj2Area1">Cybersecurity</span>
+                  <span data-i18n="pj2Area2">Managed Services</span>
+                  <span data-i18n="pj2Area3">Arquitetura de Soluções</span>
+                </div>
+              </div>
+              <div class="pj-meta">
+                <p class="pj-meta_label" data-i18n="pjLabelImpact">Impacto</p>
+                <ul class="pj-impact">
+                  <li data-i18n="pj2Imp1">Maior escalabilidade.</li>
+                  <li data-i18n="pj2Imp2">Mais valor para clientes.</li>
+                  <li data-i18n="pj2Imp3">Soluções integradas.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="pj-chapter_visual reveal" style="--1:1">
+              <figure class="pj-shot">
+                <img class="pj-shot_img" src="assets/Huddle.png" alt="Infográfico do Managed Solutions Hub: fabricantes (Fortinet, Check Point, Aruba, Netscout) conectados a um núcleo de soluções integradas e a serviços gerenciados, com áreas de atuação e impacto." loading="lazy" decoding="async">
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Projeto 03 -->
+      <section class="pj-chapter" aria-labelledby="pj3-title">
+        <span class="pj-node" aria-hidden="true">03</span>
+        <div class="pj-wrap">
+          <div class="pj-chapter_grid">
+            <div class="pj-chapter_text reveal">
+              <p class="pj-chapter_eyebrow" data-i18n="pj3Kicker">Capítulo 03</p>
+              <h2 class="pj-chapter_title" id="pj3-title" data-i18n="pj3Title">Institutional Data Lake</h2>
+              <p class="pj-chapter_theme" data-i18n="pj3Theme">Diversas fontes convergindo para um núcleo central.</p>
+              <p class="pj-chapter_narrative" data-i18n="pj3Narrative">Projeto em desenvolvimento para construção de uma plataforma institucional de dados.</p>
+              <p class="pj-chapter_message" data-i18n="pj3Message">Criar a fundação para decisões orientadas por dados.</p>
+              <div class="pj-meta">
+                <p class="pj-meta_label" data-i18n="pjLabelTech">Tecnologias</p>
+                <div class="pj-chips"><span>Data Engineering</span><span>ETL</span><span>SQL</span><span>Analytics</span></div>
+              </div>
+              <div class="pj-meta">
+                <p class="pj-meta_label" data-i18n="pjLabelObjectives">Objetivos</p>
+                <ul class="pj-impact">
+                  <li data-i18n="pj3Obj1">Centralização de dados.</li>
+                  <li data-i18n="pj3Obj2">Governança.</li>
+                  <li data-i18n="pj3Obj3">Escalabilidade.</li>
+                  <li data-i18n="pj3Obj4">Preparação para IA.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="pj-chapter_visual reveal" style="--1:1">
+              <div class="pj-canvas">
+                <svg viewBox="0 0 400 300" role="img" aria-label="Fontes de dados convergindo para um Data Lake">
+                  <g class="faint">
+                    <rect x="34" y="40" width="52" height="28" rx="6" />
+                    <rect x="110" y="26" width="52" height="28" rx="6" />
+                    <rect x="186" y="26" width="52" height="28" rx="6" />
+                    <rect x="262" y="30" width="52" height="28" rx="6" />
+                    <rect x="330" y="40" width="52" height="28" rx="6" />
+                  </g>
+                  <g class="stroke pj-flow" stroke-opacity="0.5">
+                    <path d="M60 68 C 90 140, 160 160, 200 196" />
+                    <path d="M136 58 C 150 130, 185 165, 200 196" />
+                    <path d="M212 54 C 210 120, 205 165, 200 196" />
+                    <path d="M288 58 C 260 130, 220 165, 200 196" />
+                    <path d="M356 68 C 320 140, 245 160, 200 196" />
+                  </g>
+                  <ellipse class="core" cx="200" cy="210" rx="120" ry="34" stroke-width="2.2" />
+                  <path class="faint" d="M92 214 C 130 236, 270 236, 308 214" />
+                  <path class="faint" d="M104 226 C 140 244, 260 244, 296 226" opacity="0.5" />
+                  <circle class="dot" cx="200" cy="210" r="5" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- ==================== CONEXÃO ENTRE OS PROJETOS ==================== -->
+    <section class="pj-flowmap">
+      <div class="pj-wrap">
+        <h2 class="pj-flowmap_title reveal" data-i18n="pjFlowTitle">Uma progressão natural</h2>
+        <p class="pj-flowmap_sub reveal" style="--1:1" data-i18n="pjFlowSub">Os projetos não são independentes. Cada um prepara o próximo – uma evolução de quem constrói, aprende e se prepara para o futuro.</p>
+        <div class="pj-steps">
+          <div class="pj-step reveal" data-i18n="pjFlow1">Risk Monitoring<small data-i18n="pjFlow1">Transformar dados em visibilidade</small></div>
+          <span class="pj-step_arrow reveal" style="--1:1" aria-hidden="true">→</span>
+          <div class="pj-step reveal" data-i18n="pjFlow2">Managed Solutions<small data-i18n="pjFlow2">Conectar tecnologia e serviços</small></div>
+          <span class="pj-step_arrow reveal" style="--1:2" aria-hidden="true">→</span>
+          <div class="pj-step reveal" data-i18n="pjFlow3">Institutional Data Lake<small data-i18n="pjFlow3">Fundação para decisões por dados</small></div>
+          <span class="pj-step_arrow reveal" style="--1:2" aria-hidden="true">→</span>
+          <div class="pj-step pj-step--future reveal" style="--1:3">Future Intelligence Platforms<small data-i18n="pjFlow4">O próximo salto</small></div>
+        </div>
+      </div>
+    </section>
+    <!-- ==================== PRÓXIMA FRONTEIRA ==================== -->
+    <section class="pj-future" id="proxima-fronteira">
+      <div class="pj-wrap">
+        <p class="pj-future_eyebrow reveal" data-i18n="pjFutureKicker">Seção de Futuro</p>
+        <h2 class="pj-future_title reveal" style="--1:1" data-i18n="pjFutureTitle">Próxima Fronteira</h2>
+        <p class="pj-future_msg reveal" style="--1:2" data-i18n="pjFutureMsg">O melhor projeto ainda está por vir.</p>
+        <div class="pj-frontiers">
+          <div class="pj-frontier reveal">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 6.08 4.12 10.74 8 11 3.88-.26 8-4.92 8-11V5l-8-3z" /><path d="M12 11v4" /><path d="M10 9h4" /></svg>
+            <h3 data-i18n="pjF1">Cybersecurity</h3>
+          </div>
+          <div class="pj-frontier reveal" style="--1:1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="7" width="14" height="10" rx="3" /><line x1="9" y1="7" x2="9" y2="5" /><line x1="15" y1="7" x2="15" y2="5" /><line x1="9" y1="17" x2="9" y2="19" /><line x1="15" y1="17" x2="15" y2="19" /><line x1="5" y1="11" x2="3" y2="11" /><line x1="21" y1="11" x2="19" y2="11" /><line x1="5" y1="13" x2="3" y2="13" /><line x1="21" y1="13" x2="19" y2="13" /></svg>
+            <h3 data-i18n="pjF2">Inteligência Artificial</h3>
+          </div>
+          <div class="pj-frontier reveal" style="--1:2">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3" /><path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6" /><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" /><path d="M8 18v2" /><path d="M16 18v2" /><path d="M10 18h4" /></svg>
+            <h3 data-i18n="pjF3">Engenharia de Dados</h3>
+          </div>
+          <div class="pj-frontier reveal" style="--1:3">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2" /><ellipse cx="12" cy="12" rx="8" ry="3" /><ellipse cx="12" cy="12" rx="3" ry="8" transform="rotate(45 12 12)" /><ellipse cx="12" cy="12" rx="3" ry="8" transform="rotate(-45 12 12)" /></svg>
+            <h3 data-i18n="pjF4">Computação Quântica</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="js/script.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/effects.js"></script>
+  <script src="js/projetos.js"></script>
+</body>
+</html>
