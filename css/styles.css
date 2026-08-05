@@ -258,6 +258,61 @@ body.is-loaded .hero_media { opacity: 1; }
 }
 
 .button:hover::before { transform: translateX(120%); }
+
+/* ==================== MOBILE / SMALL SCREENS FIXES ==================== */
+@media (max-width: 720px) {
+  :root { --pad: 16px; }
+
+  /* Make hero content adapt and not overflow */
+  .content {
+    left: var(--pad);
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: calc(100% - (var(--pad) * 2));
+    padding-right: var(--pad);
+  }
+
+  .navbar { right: var(--pad); gap: 12px; flex-wrap: wrap; }
+  .navbar_link { font-size: 0.78rem; }
+
+  .hero_media { background-position: center center; transform: scale(1.03); }
+
+  /* Social and chapter positions */
+  .social { right: 12px; bottom: 12px; }
+  .chapter { left: 12px; bottom: 12px; }
+
+  /* Ensure images scale down */
+  img { max-width: 100%; height: auto; }
+  .intro_photo { width: 120px; height: 120px; }
+  .pj-shot_img { width: 100%; height: auto; display: block; }
+
+  /* Timeline and project grid stack vertically */
+  .tl-item { grid-template-columns: 44px 1fr; }
+  .pj-chapter_grid { grid-template-columns: 1fr; gap: 18px; }
+  .pj-chapter_visual { order: 0; }
+  .pj-chapter_text { order: 1; }
+
+  /* Flow map and frontiers: use fewer columns */
+  .pj-steps { flex-direction: column; gap: 12px; }
+  .pj-frontiers { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .pj-frontier svg { width: 28px; height: 28px; margin-bottom: 10px; }
+
+  /* Reduce padding on wrappers */
+  .wrap { padding-left: 12px; padding-right: 12px; }
+
+  /* Reduce sizes for large text */
+  .title { font-size: clamp(2.2rem, 6.5vw, 3rem); }
+  .intro_title, .pj-hero_title { font-size: clamp(1.6rem, 5.5vw, 2rem); }
+}
+
+@media (max-width: 420px) {
+  :root { --pad: 12px; }
+  .intro_photo { width: 96px; height: 96px; }
+  .pj-frontiers { grid-template-columns: 1fr; }
+  .navbar_link { font-size: 0.74rem; }
+  .badge { font-size: 0.72rem; }
+  .pj-shot_bar .pj-shot_title { font-size: 0.86rem; }
+}
 .button_arrow { transition: transform 0.45s var(--ease); }
 .button:hover .button_arrow { transform: translateX(6px); }
 
