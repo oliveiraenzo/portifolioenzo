@@ -55,18 +55,18 @@ html[data-theme="light"] {
 }
 
 /* ==================== SITE CONTROLS (theme + language) ==================== */
-.site-controls { display: inline-flex; align-items: center; gap: 12px; }
+.site-controls { display: inline-flex; align-items: center; gap: 8px; }
 .lang-toggle { display: inline-flex; align-items: center; justify-content: center;
-  min-width: 40px; height: 40px; padding: 0 13px; border-radius: 100px; font-family: 'Inter', sans-serif;
-  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; color: var(--muted); background: var(--surface);
-  border: 1px solid var(--line); cursor: pointer; transition: color 0.3s var(--ease), border-color 0.3s var(--ease),
-  background 0.3s var(--ease); }
-.lang-toggle:hover { color: var(--heading); border-color: rgba(86, 217, 255, 0.5); transform: translateY(-2px); }
-.theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px;
+  min-width: 36px; height: 36px; padding: 0 10px; border-radius: 100px; font-family: 'Inter', sans-serif;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; color: var(--muted); background: var(--surface);
+  border: 1px solid var(--line); cursor: pointer; transition: color 0.2s var(--ease), border-color 0.2s var(--ease),
+  background 0.2s var(--ease); }
+.lang-toggle:hover { color: var(--heading); border-color: rgba(86, 217, 255, 0.45); transform: translateY(-1px); }
+.theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px;
   border-radius: 50%; color: var(--muted); background: var(--surface); border: 1px solid var(--line);
-  cursor: pointer; transition: color 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.3s var(--ease); }
-.theme-toggle:hover { color: var(--heading); border-color: rgba(86, 217, 255, 0.5); transform: translateY(-2px); }
-.theme-toggle svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  cursor: pointer; transition: color 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease); }
+.theme-toggle:hover { color: var(--heading); border-color: rgba(86, 217, 255, 0.45); transform: translateY(-1px); }
+.theme-toggle svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .theme-toggle .icon-moon { display: block; }
 .theme-toggle .icon-sun { display: none; }
 html[data-theme="light"] .theme-toggle .icon-sun { display: block; }
@@ -97,7 +97,10 @@ html[data-theme="light"] .hero .social_icon { color: rgba(233, 238, 250, 0.85); 
   position: absolute;
   inset: 0;
   z-index: 0;
+  width: 100%;
+  height: 100%;
   background: url("../assets/Designer.png") no-repeat center right / cover;
+  background-size: cover;
   transform: scale(1.06) translate(var(--px, 0px), var(--py, 0px));
   opacity: 0;
   transition: opacity 1.6s var(--ease);
@@ -138,10 +141,43 @@ body.is-loaded .hero_media { opacity: 1; }
   z-index: 4;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: clamp(18px, 2.4vw, 36px);
 }
 
+.site-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
+  font-size: 1.25rem;
+  line-height: 1;
+  z-index: 10005;
+}
+
+.nav-toggle:hover {
+  transform: translateY(-1px);
+  background: rgba(86, 217, 255, 0.08);
+  border-color: rgba(86, 217, 255, 0.35);
+  color: #fff;
+}
+
 .navbar_link {
+  display: inline-flex;
+  align-items: center;
   position: relative;
   font-size: 0.82rem;
   font-weight: 500;
@@ -149,6 +185,84 @@ body.is-loaded .hero_media { opacity: 1; }
   color: var(--muted);
   opacity: 0.82;
   transition: color 0.35s var(--ease), opacity 0.35s var(--ease);
+}
+
+nav.navbar.is-open .nav-toggle,
+nav.mh-nav.is-open .nav-toggle {
+  position: fixed !important; 
+  top: 18px !important; 
+  right: 16px !important;
+  z-index: 10011 !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #fff !important;
+}
+
+nav.navbar.is-open::after,
+nav.mh-nav.is-open::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at top right, rgba(86, 217, 255, 0.06), transparent 32%);
+  border-radius: 12px;
+  mix-blend-mode: overlay;
+}
+
+nav.navbar.is-open .nav-toggle,
+nav.mh-nav.is-open .nav-toggle {
+  position: absolute !important;
+  top: 12px !important;
+  right: 12px !important;
+  z-index: 10005 !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #fff !important;
+}
+
+nav.navbar.is-open .navbar_link,
+nav.mh-nav.is-open .mh-nav_link {
+  display: block !important;
+  width: 100% !important;
+  padding: 14px 16px !important;
+  border-radius: 12px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: #fff !important;
+  text-align: left !important;
+  font-size: 0.98rem !important;
+  line-height: 1.4 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  transition: background 0.18s var(--ease), transform 0.18s var(--ease) !important;
+}
+
+nav.navbar.is-open .navbar_link + .navbar_link { margin-top: 8px !important; }
+
+nav.navbar.is-open .site-controls,
+nav.mh-nav.is-open .site-controls {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 8px !important;
+  position: absolute !important;
+  top: 12px !important;
+  right: 56px !important; /* move a bit left so it doesn't overlap the links */
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  border-top: none !important;
+  background: none !important;
+}
+
+nav.navbar.is-open .lang-toggle,
+nav.navbar.is-open .theme-toggle,
+nav.mh-nav.is-open .lang-toggle,
+nav.mh-nav.is-open .theme-toggle {
+    display: inline-flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    padding: 14px 18px !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-radius: 14px !important;
 }
 
 .navbar_link::after {
@@ -265,21 +379,33 @@ body.is-loaded .hero_media { opacity: 1; }
 
   /* Make hero content adapt and not overflow */
   .content {
-    left: var(--pad);
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
     max-width: calc(100% - (var(--pad) * 2));
-    padding-right: var(--pad);
+    padding: 0 var(--pad) !important;
+    padding-top: 130px !important;
   }
 
-  .navbar { right: var(--pad); gap: 12px; flex-wrap: wrap; }
-  .navbar_link { font-size: 0.78rem; }
+  nav.navbar, nav.mh-nav { position: absolute !important; top: 18px !important; right: var(--pad) !important; gap: 12px; flex-wrap: wrap; }
+  .navbar_link, .mh-nav_link { font-size: 0.78rem; }
 
-  .hero_media { background-position: center center; transform: scale(1.03); }
+  .hero_media {
+    position: absolute !important;
+    inset: 0 !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    border-radius: 0 !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
 
   /* Social and chapter positions */
-  .social { right: 12px; bottom: 12px; }
-  .chapter { left: 12px; bottom: 12px; }
+  .social { position: static !important; right: auto !important; bottom: auto !important; margin-top: 16px !important; }
+  .chapter { position: static !important; left: auto !important; bottom: auto !important; margin-top: 16px !important; }
 
   /* Ensure images scale down */
   img { max-width: 100%; height: auto; }
@@ -303,6 +429,138 @@ body.is-loaded .hero_media { opacity: 1; }
   /* Reduce sizes for large text */
   .title { font-size: clamp(2.2rem, 6.5vw, 3rem); }
   .intro_title, .pj-hero_title { font-size: clamp(1.6rem, 5.5vw, 2rem); }
+
+  /* Mobile hamburger menu */
+  .nav-toggle {
+    display: inline-flex !important;
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 1rem !important;
+    line-height: 1 !important;
+    margin-left: 0 !important;
+    position: fixed !important;
+    top: 18px !important;
+    right: 16px !important;
+    z-index: 10005 !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+  }
+  .site-controls {
+    order: 0 !important;
+    position: absolute !important; /* position inside the panel to avoid overlaying links */
+    top: 12px !important;
+    right: 64px !important;
+    z-index: 10006 !important;
+    background: transparent !important;
+    display: inline-flex !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+  .navbar_link, .mh-nav_link { display: none !important; }
+  .site-controls { display: inline-flex !important; }
+  nav.navbar.is-open,
+  nav.mh-nav.is-open {
+    position: fixed !important;
+    top: 62px !important;
+    left: 16px !important;
+    right: 16px !important;
+    width: calc(100% - 32px) !important;
+    max-width: none !important;
+    height: auto !important;
+    background: #050816 !important;
+    border-radius: 12px !important;
+    padding: 72px 16px 16px !important;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45) !important;
+    z-index: 10004 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    overflow: visible !important;
+    gap: 12px !important;
+    max-height: calc(100vh - 96px) !important;
+  }
+  nav.navbar.is-open::after,
+  nav.mh-nav.is-open::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at top right, rgba(86, 217, 255, 0.06), transparent 32%);
+    border-radius: 12px;
+  }
+  nav.navbar.is-open .nav-toggle,
+  nav.mh-nav.is-open .nav-toggle {
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
+    z-index: 10005 !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    color: #fff !important;
+  }
+  nav.navbar.is-open .navbar_link,
+  nav.mh-nav.is-open .mh-nav_link {
+    display: block !important;
+    width: 100% !important;
+    padding: 14px 16px 14px 16px !important;
+    padding-right: 100px !important; /* leave horizontal space for site-controls */
+    border-radius: 12px !important;
+    background: rgba(255,255,255,0.03) !important;
+    color: #fff !important;
+    text-align: left !important;
+    font-size: 0.98rem !important;
+    line-height: 1.4 !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.06em !important;
+    transition: background 0.18s var(--ease), transform 0.18s var(--ease) !important;
+  }
+  nav.navbar.is-open .site-controls,
+  nav.mh-nav.is-open .site-controls {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    margin-top: 24px !important;
+    padding-top: 8px !important;
+    border-top: 1px solid rgba(255,255,255,0.08) !important;
+  }
+}
+html.nav-open { overflow: hidden !important; }
+
+/* Symmetric hamburger and controls */
+.nav-toggle {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  font-size: 1.05rem !important;
+  line-height: 1 !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  border: 1px solid var(--line) !important;
+  background: var(--surface) !important;
+  box-shadow: none !important;
+}
+
+.site-controls {
+  display: inline-flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+}
+
+/* Keep small spacing between PT and theme, align all at same baseline */
+.site-controls .lang-toggle,
+.site-controls .theme-toggle {
+  width: 36px !important;
+  height: 36px !important;
+  padding: 0 10px !important;
+}
+
+/* Slightly nudge positions for perfect centering on small screens */
+@media (max-width: 720px) {
+  .nav-toggle { top: 18px !important; right: 16px !important; }
+  .site-controls { top: 18px !important; right: 64px !important; position: fixed !important; }
 }
 
 @media (max-width: 420px) {
@@ -461,50 +719,85 @@ body.is-loaded .hero_media { opacity: 1; }
 /* ==================== RESPONSIVO (texto -> imagem -> redes) ==================== */
 @media (max-width: 860px) {
   .hero {
-    display: flex;
-    flex-direction: column;
-    gap: 26px;
-    padding: clamp(22px, 6vw, 40px);
+    position: relative !important;
+    display: block !important;
+    padding: clamp(22px, 6vw, 40px) !important;
+    min-height: 100vh !important;
+    overflow: hidden !important;
   }
-  .hero_overlay { display: none; }
+  .hero_overlay { display: none !important; }
+
+/* Strong overrides to prevent controls from overlapping menu items */
+nav.navbar.is-open,
+nav.mh-nav.is-open {
+  padding-top: 96px !important; /* ensure enough space for PT/theme + close */
+}
+nav.navbar.is-open .site-controls,
+nav.mh-nav.is-open .site-controls {
+  position: absolute !important;
+  top: 18px !important;
+  right: 64px !important;
+  z-index: 10010 !important;
+  display: inline-flex !important;
+  gap: 8px !important;
+}
+nav.navbar.is-open .nav-toggle,
+nav.mh-nav.is-open .nav-toggle {
+  position: absolute !important;
+  top: 12px !important;
+  right: 12px !important;
+  z-index: 10011 !important;
+}
+nav.navbar.is-open .navbar_link,
+nav.mh-nav.is-open .mh-nav_link {
+  margin-top: 8px !important;
+}
+
   .navbar {
-    position: static;
-    order: 1;
-    align-self: flex-end;
-    gap: 20px;
+    position: absolute !important;
+    top: clamp(18px, 4vw, 28px) !important;
+    right: var(--pad) !important;
+    order: initial !important;
+    align-self: auto !important;
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+    max-width: calc(100% - 32px) !important;
   }
   .content {
-    position: static;
-    order: 2;
-    transform: none;
-    max-width: 100%;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    max-width: 100% !important;
+    padding-top: 100px !important;
   }
   .chapter {
-    position: static;
-    order: 3;
+    position: static !important;
+    order: initial !important;
   }
   .hero_media {
-    position: relative;
-    inset: auto;
-    order: 4;
-    height: 40vh;
-    min-height: 260px;
-    border-radius: 22px;
-    background-position: center;
-    transform: none;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    position: absolute !important;
+    inset: 0 !important;
+    order: initial !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    border-radius: 0 !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    transform: none !important;
+    box-shadow: none !important;
   }
   .hero_media::after {
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: inherit;
+    border-radius: 0;
     background: linear-gradient(180deg, rgba(5, 8, 22, 0.1), rgba(5, 8, 22, 0.4));
   }
   .social {
-    position: static;
-    order: 5;
-    align-self: flex-start;
+    position: static !important;
+    order: initial !important;
+    align-self: flex-start !important;
   }
 }
 
@@ -616,4 +909,362 @@ html.fx-cursor-down .fx-cursor-ring {
 @keyframes fxTrail {
   from { opacity: 0.75; transform: scale(1); }
   to { opacity: 0; transform: scale(0.25); }
+}
+
+/* ==================== STRONG MOBILE OVERRIDES (force fixes when layout breaks) ==================== */
+/* Small devices extra safety */
+@media (max-width: 420px) {
+  .hero_media { height: 100% !important; min-height: 100% !important; border-radius: 0 !important; }
+  .title { font-size: clamp(2rem, 10vw, 2.8rem) !important; }
+}
+
+/* ==========================================================
+   MENU MOBILE PREMIUM (GLASSMORPHISM)
+   Adicione no final do styles.css
+   ========================================================== */
+@media (max-width: 860px) {
+  /* 1. O Painel Principal (Efeito Vidro e Sombra) */
+/* 1. O Painel Principal (Efeito Vidro e Sombra) */
+  nav.navbar.is-open,
+  nav.mh-nav.is-open {
+    position: fixed !important;
+    top: 16px !important;
+    left: 16px !important;
+    right: 16px !important;
+    width: calc(100% - 32px) !important;
+    max-width: none !important;
+    
+    /* 👇 AQUI ESTÁ A MUDANÇA: Aumentado de 0.65 para 0.95 */
+    background: rgba(5, 8, 22, 0.95) !important; 
+    
+    backdrop-filter: blur(24px) !important; 
+    -webkit-backdrop-filter: blur(24px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 24px !important;
+    padding: 84px 20px 24px !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                0 30px 60px rgba(0, 0, 0, 0.6),
+                0 0 0 100vw rgba(0, 0, 0, 0.6) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    z-index: 10010 !important;
+  }
+
+  /* 2. Botão Fechar (Alinhado no Topo à Direita) */
+  nav.navbar.is-open .nav-toggle,
+  nav.mh-nav.is-open .nav-toggle {
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    width: 44px !important;
+    height: 44px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 50% !important;
+    color: #fff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+  }
+
+  /* 3. Controles PT/Tema (Alinhados no Topo à Esquerda) */
+  nav.navbar.is-open .site-controls,
+  nav.mh-nav.is-open .site-controls {
+    position: absolute !important;
+    top: 20px !important;
+    left: 20px !important;
+    right: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 12px !important;
+    background: transparent !important;
+  }
+
+  /* Padronizando o botão de Idioma e Tema para ficarem redondos e iguais ao X */
+  nav.navbar.is-open .lang-toggle,
+  nav.mh-nav.is-open .lang-toggle,
+  nav.navbar.is-open .theme-toggle,
+  nav.mh-nav.is-open .theme-toggle {
+    width: 44px !important;
+    height: 44px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* 4. Links do Menu (Estilo Card Limpo) */
+  nav.navbar.is-open .navbar_link,
+  nav.mh-nav.is-open .mh-nav_link {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 18px 20px !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-radius: 16px !important;
+    color: #fff !important;
+    font-size: 1.05rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.04em !important;
+    text-align: left !important;
+    transition: all 0.3s var(--ease) !important;
+  }
+
+  /* Efeito visual de foco/toque usando a cor de acento (Cyan) */
+  nav.navbar.is-open .navbar_link:hover,
+  nav.mh-nav.is-open .mh-nav_link:hover,
+  nav.navbar.is-open .navbar_link:active,
+  nav.mh-nav.is-open .mh-nav_link:active {
+    background: rgba(86, 217, 255, 0.08) !important;
+    border-color: rgba(86, 217, 255, 0.3) !important;
+    color: #fff !important;
+    transform: translateX(4px) !important;
+  }
+  
+  /* Remove a barrinha inferior animada antiga para manter o visual de card mais elegante */
+  nav.navbar.is-open .navbar_link::after,
+  nav.mh-nav.is-open .mh-nav_link::after {
+    display: none !important;
+  }
+}
+
+/* ==========================================================
+   FIX: ALINHAMENTO DO CABEÇALHO E BOTÕES (MOBILE)
+   ========================================================== */
+@media (max-width: 860px) {
+  /* 1. Força o cabeçalho interno a manter tudo na mesma linha (Logo + Botões) */
+  .mh-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    padding: 16px 20px !important;
+  }
+
+  /* 2. Devolve os menus para o fluxo natural (Flexbox) em vez de deixá-los fixed soltos */
+  nav.navbar:not(.is-open),
+  nav.mh-nav:not(.is-open) {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 10px !important; /* Espaçamento perfeito e automático entre controles e menu */
+    padding: 0 !important;
+  }
+
+  /* Exceção: No index.html, a navbar ainda precisa flutuar sobre a imagem do Hero */
+  .hero nav.navbar:not(.is-open) {
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+  }
+
+  /* 3. Remove o position fixed dos botões individuais para que sigam o gap do flexbox */
+  nav.navbar:not(.is-open) .nav-toggle,
+  nav.mh-nav:not(.is-open) .nav-toggle,
+  nav.navbar:not(.is-open) .site-controls,
+  nav.mh-nav:not(.is-open) .site-controls {
+    position: static !important;
+    margin: 0 !important;
+  }
+
+  /* 4. Garante que os controles internos (PT e Lua) também fiquem alinhados */
+  .site-controls {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  /* 5. Padroniza a geometria: Todos os 3 botões viram círculos exatos de 40px */
+  .nav-toggle, 
+  .site-controls .lang-toggle, 
+  .site-controls .theme-toggle {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    padding: 0 !important;
+    border-radius: 50% !important; /* Força o formato redondo */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* ==========================================================
+   CORREÇÃO DEFINITIVA DO CABEÇALHO E MENU MOBILE
+   ========================================================== */
+@media (max-width: 860px) {
+  /* 1. CABEÇALHO: Nome travado na esquerda, Ícones na direita */
+  body header.mh-header {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 16px 20px !important;
+    width: 100% !important;
+  }
+
+  body .brand {
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+
+  /* Oculta o subtítulo no mobile para dar espaço aos botões */
+  body .brand_tag {
+    display: none !important;
+  }
+
+  /* 2. BARRA FECHADA: Organiza os botões lado a lado */
+  body nav.mh-nav:not(.is-open),
+  body nav.navbar:not(.is-open) {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    width: auto !important;
+    gap: 12px !important;
+    order: 2 !important;
+    position: static !important;
+  }
+
+  body .site-controls {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 12px !important;
+    position: static !important;
+  }
+
+  /* Garante que o Menu (☰) seja sempre o último ícone na extrema direita */
+  body .nav-toggle {
+    order: 3 !important;
+    position: static !important;
+  }
+
+  /* Padroniza todos os controles em círculos perfeitos */
+  body .nav-toggle,
+  body .lang-toggle,
+  body .theme-toggle {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+  }
+
+  /* 3. MENU ABERTO: Fundo escuro e sólido para corrigir a transparência */
+  body nav.navbar.is-open,
+  body nav.mh-nav.is-open {
+    position: fixed !important;
+    top: 16px !important;
+    left: 16px !important;
+    right: 16px !important;
+    width: calc(100% - 32px) !important;
+    height: auto !important;
+    
+    /* Fundo hiper escuro e sólido (sem transparência no mobile) */
+    background: #050816 !important; 
+    border: 1px solid rgba(86, 217, 255, 0.2) !important;
+    border-radius: 20px !important;
+    padding: 76px 20px 24px !important;
+    
+    /* Cria a "película" escura que tampa o resto do site */
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9), 0 0 0 100vw rgba(5, 8, 22, 0.85) !important;
+    z-index: 99999 !important;
+    
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  /* Posiciona o "X" no topo direito do menu aberto */
+  body nav.navbar.is-open .nav-toggle,
+  body nav.mh-nav.is-open .nav-toggle {
+    position: absolute !important;
+    top: 16px !important;
+    right: 16px !important;
+  }
+
+  /* Posiciona os botões PT/Lua no topo esquerdo do menu aberto */
+  body nav.navbar.is-open .site-controls,
+  body nav.mh-nav.is-open .site-controls {
+    position: absolute !important;
+    top: 16px !important;
+    left: 16px !important;
+  }
+}
+
+/* ==========================================================
+   FIX: SOBREPOSIÇÃO DO MENU (PÁGINA PROJETOS E HISTÓRIA)
+   ========================================================== */
+@media (max-width: 860px) {
+  /* Restaura o comportamento e a camada do cabeçalho,
+     anulando o 'position: static' problemático do historia.css */
+  body header.mh-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 99999 !important;
+  }
+
+  /* Garante que o conteúdo da página fique contido em uma camada inferior */
+  body main {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+}
+
+/* ==========================================================
+   FIX: VISIBILIDADE DO MENU (DESKTOP VS MOBILE/ZOOM)
+   ========================================================== */
+
+/* 1. DESKTOP (Telas maiores que 860px) */
+@media (min-width: 861px) {
+  /* Esconde o botão hambúrguer completamente */
+  body .nav-toggle {
+    display: none !important;
+  }
+  
+  /* Garante que os links de texto (Minha História, Currículo, etc) fiquem visíveis */
+  body .navbar_link,
+  body .mh-nav_link {
+    display: inline-flex !important;
+  }
+  
+  /* Remove qualquer estilo de "menu aberto" caso a tela seja redimensionada */
+  body nav.navbar,
+  body nav.mh-nav {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+}
+
+/* 2. MOBILE, TABLET OU ZOOM (Telas menores que 860px) */
+@media (max-width: 860px) {
+  /* Mostra o botão hambúrguer */
+  body .nav-toggle {
+    display: inline-flex !important;
+  }
+
+  /* Esconde os links de texto quando o menu estiver FECHADO */
+  body nav.navbar:not(.is-open) .navbar_link,
+  body nav.mh-nav:not(.is-open) .mh-nav_link {
+    display: none !important;
+  }
 }

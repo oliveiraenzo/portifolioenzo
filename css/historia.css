@@ -31,7 +31,7 @@ body {
 .mh-header {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 10002;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,6 +47,7 @@ body {
 .brand_name { font-weight: 800; letter-spacing: 0.14em; font-size: 0.98rem; color: var(--heading); }
 .brand_tag { font-size: 0.68rem; letter-spacing: 0.32em; color: var(--accent); text-transform: uppercase; font-weight: 500; }
 .mh-nav { display: flex; align-items: center; gap: clamp(16px, 2.4vw, 38px); }
+.site-controls { display: flex; align-items: center; gap: 12px; }
 .mh-nav_link {
   position: relative;
   font-size: 0.8rem;
@@ -230,14 +231,33 @@ html[data-theme="light"] .theme-toggle .icon-moon { display: none; }
   .mh-header { flex-wrap: wrap; gap: 14px; }
   .mh-nav { order: 3; width: 100%; flex-wrap: wrap; gap: 16px; }
   .brand_tag { display: none; }
-  .media { min-height: 44px 1fr; gap: 14px; }
-  .tl-item { grid-template-columns: 44px; height: 44px; }
+  .media { min-height: 44px; gap: 14px; }
+  /* Timeline: keep icon + content columns on small screens */
+  .tl-item { grid-template-columns: 44px 1fr; gap: 12px; padding-bottom: 24px; }
   .tl-icon { width: 44px; height: 44px; }
-  .tl-item::before { left: 21px; top: 44px; }
+  .tl-item::before { left: 21px; top: 56px; }
   .intro_head { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .intro_photo { order: 0; width: clamp(200px, 48vw, 280px); height: clamp(200px, 48vw, 280px); }
+  .intro_photo { order: 0; width: clamp(140px, 36vw, 220px); height: clamp(140px, 36vw, 220px); }
   .intro_head .intro_title { margin: 0; }
 }
+
+/* ==================== GLOBAL MOBILE SAFETY OVERRIDES (applies to Minha História and related pages) ==================== */
+@media (max-width: 860px) {
+  html, body, main { height: auto !important; min-height: 100% !important; overflow-x: hidden !important; }
+  .wrap, .mh-main, .intro, .timeline, .media, .mh-header, .mh-nav { overflow: visible !important; position: static !important; }
+  .mh-header { display: flex !important; flex-wrap: wrap !important; gap: 12px !important; }
+  .intro_head { flex-direction: column !important; gap: 12px !important; }
+  .intro_photo { width: 120px !important; height: 120px !important; border-radius: 50% !important; }
+  img { max-width: 100% !important; height: auto !important; }
+  .timeline { padding-left: 0 !important; }
+  .tl-item { grid-template-columns: 44px 1fr !important; }
+  .media { min-height: auto !important; border-radius: 12px !important; padding: 12px !important; }
+  .cv_viewer { height: 70vh !important; }
+}
+@media (max-width: 420px) {
+  .intro_photo { width: 96px !important; height: 96px !important; }
+}
+
 
 /* --------- Curriculo (visualizador de PDF) --------- */
 .cv_actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 24px 0 22px; }

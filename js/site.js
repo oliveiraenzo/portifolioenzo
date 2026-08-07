@@ -23,6 +23,54 @@
     });
   });
 
+  /* ------ Mobile hamburger nav ------ */
+  /* ------ Mobile hamburger nav ------ */
+  function initHamburgerNav() {
+    qsa(".nav-toggle").forEach(function (btn) {
+      var nav = btn.closest("nav");
+      if (!nav) return;
+      
+      // 1. Abrir e fechar pelo botão (seu código original mantido)
+      btn.addEventListener("click", function (event) {
+        event.stopPropagation();
+        var open = nav.classList.toggle("is-open");
+        document.documentElement.classList.toggle("nav-open", open);
+        btn.setAttribute("aria-expanded", String(open));
+        btn.textContent = open ? "✕" : "☰";
+      });
+
+      // 2. NOVO: Fechar o menu imediatamente ao clicar em qualquer link
+      var navLinks = nav.querySelectorAll(".navbar_link, .mh-nav_link");
+      navLinks.forEach(function(link) {
+        link.addEventListener("click", function() {
+          nav.classList.remove("is-open");
+          document.documentElement.classList.remove("nav-open");
+          btn.setAttribute("aria-expanded", "false");
+          btn.textContent = "☰";
+        });
+      });
+    });
+
+    // 3. NOVO: Adicionado 'touchstart' para garantir que fechar fora funcione no iOS
+    ['click', 'touchstart'].forEach(function(evt) {
+      document.addEventListener(evt, function (event) {
+        if (event.target.closest("nav")) return;
+        
+        qsa("nav.is-open").forEach(function (nav) {
+          nav.classList.remove("is-open");
+          document.documentElement.classList.remove("nav-open");
+          var toggle = nav.querySelector(".nav-toggle");
+          if (toggle) {
+            toggle.setAttribute("aria-expanded", "false");
+            toggle.textContent = "☰";
+          }
+        });
+      }, { passive: true }); // passive melhora a performance de scroll no mobile
+    });
+  }
+  initHamburgerNav();
+
+
   /* ------ i18n ------ */
   var LANGS = ["pt", "en", "es"];
   var currentLang = "pt";
